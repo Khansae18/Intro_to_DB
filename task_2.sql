@@ -1,8 +1,17 @@
+-- Drop tables first if they already exist (optional but helpful for testing)
+DROP TABLE IF EXISTS Order_Details;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Books;
+DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS Authors;
+
+-- Create Authors table
 CREATE TABLE Authors (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL
 );
 
+-- Create Books table
 CREATE TABLE Books (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(150) NOT NULL,
@@ -10,12 +19,14 @@ CREATE TABLE Books (
     FOREIGN KEY (author_id) REFERENCES Authors(id)
 );
 
+-- Create Customers table
 CREATE TABLE Customers (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL
 );
 
+-- Create Orders table
 CREATE TABLE Orders (
     id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
@@ -23,6 +34,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(id)
 );
 
+-- Create Order_Details table
 CREATE TABLE Order_Details (
     id INT PRIMARY KEY AUTO_INCREMENT,
     order_id INT,
