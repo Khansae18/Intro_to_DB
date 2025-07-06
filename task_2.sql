@@ -1,9 +1,5 @@
--- Drop tables first if they already exist (optional but helpful for testing)
-DROP TABLE IF EXISTS Order_Details;
-DROP TABLE IF EXISTS Orders;
-DROP TABLE IF EXISTS Books;
-DROP TABLE IF EXISTS Customers;
-DROP TABLE IF EXISTS Authors;
+-- Select the database
+USE alx_book_store;
 
 -- Create Authors table
 CREATE TABLE Authors (
